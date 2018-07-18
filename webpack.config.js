@@ -10,6 +10,10 @@ module.exports = {
 		loaders: [{
 			test: /\.jsx?$/,
 			loader: 'babel'
+		},
+		{
+			test: /\.json$/,
+			loader: 'json-loader'
 		}]
 	}
 };
