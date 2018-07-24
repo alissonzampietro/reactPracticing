@@ -14,7 +14,7 @@ class BillingList extends React.Component {
 					</tr>
 				</thead>
 				<tbody>
-					{this.props.item.map((data,num) => { return <tr key={num}><td>{data.name}</td><td>{data.balance}</td></tr>})}
+					{this.props.item.map((data,num) => { return <tr key={num} style={{backgroundColor: data.color}}><td>{data.name}</td><td>{data.balance}</td></tr>})}
 				</tbody>
 			</table>
 		)
