@@ -10,6 +10,10 @@ class BillingList extends React.Component {
 		}
 	}
 
+	componentWillUpdate() {
+
+	}
+
 	render() {
 		return (
 			<Table head={this.state.titles} />
