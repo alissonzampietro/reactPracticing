@@ -1,22 +1,32 @@
 import React from 'react'
 import Table from '../../Atoms/Table/'
+import Data from './../../../data/data.json'
 
 class BillingList extends React.Component {
 
 	constructor() {
 		super()
 		this.state = {
-			titles: ['Item','Price']
+			counter: 1
 		}
+		this.loadItem = this.loadItem.bind(this)
 	}
 
-	componentWillUpdate() {
-
+	loadItem() {
+		this.setState(
+			{
+				billing: Object.entries(Data[this.state.counter]),
+				counter: this.state.counter++
+			}
+		)
 	}
 
 	render() {
 		return (
-			<Table head={this.state.titles} />
+			<div>
+				<Table body={this.state.billing}/>
+				<button onClick={this.loadItem}>Carregar item</button>
+			</div>
 		)
 	}
 }

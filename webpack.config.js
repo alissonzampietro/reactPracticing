@@ -3,13 +3,14 @@ module.exports = {
 		'./src/App.js'
 	],
 	output: {
-		path: __dirname,
+		// path: __dirname,
 		filename: 'app.js'
 	},
 	module: {
 		loaders: [{
 			test: /\.jsx?$/,
-			loader: 'babel'
+			loader: 'babel',
+			env: 'development'
 		},
 		{
 			test: /\.json$/,

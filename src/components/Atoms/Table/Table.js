@@ -3,37 +3,31 @@ import React from 'react'
 class Table extends React.Component {
 	constructor() {
 		super()
-	}
-
-	buildHeader() {
-		let el = [];
-		for(let position in this.props.head) {
-			el.push(<th key={position}>{this.props.head[position]}</th>)
+		this.state = {
+			body: [],
+			header:[]
 		}
-		return el;
 	}
 
-	buildBody() {
-		let el = [];
-		for(let position in this.props.body) {
-			el.push(<th key={position}>{this.props.head[position]}</th>)
-		}
-		return el;
+	componentDidUpdate() {
+			let item = []
+			this.props.body.map(data => {
+				this.setState({body: item})
+				item.push(data[1])
+			})
 	}
-
-
 
 	render() {
 		return (
 		<table>
 			<thead>	
 				<tr>
-					{this.buildHeader()}
+					{this.state.header}
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					{this.buildBody()}
+					{this.state.body.map(data => {<td>${data}</td>})}
 				</tr>
 			</tbody>
 		</table>
