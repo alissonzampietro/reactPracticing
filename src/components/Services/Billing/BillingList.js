@@ -8,13 +8,14 @@ class BillingList extends React.Component {
 		super()
 		let header = Object.keys(Data[1])
 		this.state = {
-			counter: 1,
+			counter: 0,
 			headerTable: header
 		}
 		this.loadItem = this.loadItem.bind(this)
 	}
 
 	loadItem() {
+		this.state.counter++
 		delete Data[this.state.counter].friends
 		this.setState(
 			{
