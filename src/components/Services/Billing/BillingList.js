@@ -6,16 +6,19 @@ class BillingList extends React.Component {
 
 	constructor() {
 		super()
+		let header = Object.keys(Data[1])
 		this.state = {
-			counter: 1
+			counter: 1,
+			headerTable: header
 		}
 		this.loadItem = this.loadItem.bind(this)
 	}
 
 	loadItem() {
+		delete Data[this.state.counter].friends
 		this.setState(
 			{
-				billing: Object.entries(Data[this.state.counter]),
+				billing: Data[this.state.counter],
 				counter: this.state.counter++
 			}
 		)
@@ -24,7 +27,7 @@ class BillingList extends React.Component {
 	render() {
 		return (
 			<div>
-				<Table body={this.state.billing}/>
+				<Table header= {this.state.headerTable} body={this.state.billing}/>
 				<button onClick={this.loadItem}>Carregar item</button>
 			</div>
 		)
